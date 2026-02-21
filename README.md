@@ -24,7 +24,7 @@ The game utilizes the board's joystick and buttons for interaction:
 | Input | Action |
 | :--- | :--- |
 | **KEY1** | Starts the game (after reset) or toggles between "paused" and "playing" states. |
-| **KEY2** | **Hard Drop**: Current tetromino falls instantly[cite: 126]. |
+| **KEY2** | **Hard Drop**: Current tetromino falls instantly. |
 | **Joystick Up** | Rotates the tetromino $90^{\circ}$ clockwise. |
 | **Joystick Left/Right** | Moves the tetromino horizontally. |
 | **Joystick Down** | **Soft Drop**: Increases fall speed to 2 squares/second while held. |
