@@ -1,9 +1,11 @@
-# Computer Architectures — Tetris (LandTiger / LPC1768)
+# Computer Architectures — Tetris (First Edition)
 
 ## 📌 Project Overview
 This repository contains my simplified **Tetris** implementation for the **LandTiger (LPC1768)** platform, developed for the course *Architetture dei Sistemi di Elaborazione (Computer Architectures)*.
 
 The project is intended to run in **Keil µVision** using the LandTiger emulator.
+
+🔗 **Second Edition (extended version):** [Tetris (Second Edition)](https://github.com/leilaalizadeh/Tetris_B), adds potentiometer speed control, powerups and malus lines.
 
 - **Target platform:** LandTiger Board / LPC1768 (Emulator)
 - **Keil target:** `SW_Debug` (software debug / emulation)
@@ -52,9 +54,11 @@ This is a classic Tetris-style game:
 ## 📈 Scoring System
 Scoring is designed to reward clearing multiple lines at once.
 
-- **Piece locks (placement):** `+10`
-- **Clear N lines at once:** `+100 × N`  
-- **Clear 4 lines at once (Tetris):** `+600`
+| Event | Points |
+|---|---|
+| Piece locks (placement) | `+10` |
+| Clear 1–3 lines at once | `+100 × N` |
+| Clear 4 lines at once (Tetris) | `+600` (instead of `+400`) |
 
 > Placement points (`+10`) are still added when the piece locks, even if lines are cleared.
 
@@ -83,7 +87,25 @@ After game over:
 
 ---
 
+## 📁 Project Structure
+
+| Path | Purpose |
+|---|---|
+| `Main.c` | Initialization and main loop |
+| `Game.c` / `Game.h` | Game logic: collisions, line clearing, scoring, game over |
+| `View.c` / `View.h` | Drawing the grid, blocks and score panel on the LCD |
+| `Tetrominoes.s` | Tetromino shape and rotation data (assembly) |
+| `Random_LFSR.s` | LFSR random number generator (assembly) |
+| `RIT/` | Repetitive Interrupt Timer: gravity, soft drop, joystick polling |
+| `Button/`, `joystick/` | KEY1/KEY2 and joystick input |
+| `GLCD/` | LCD driver |
+| `Template.uvprojx` | Keil µVision project file |
+
+---
+
 ## 🧱 Build & Run (Keil µVision)
+**Requirements:** Keil µVision (version: -) with the LPC17xx device pack
+
 1. Open the `.uvprojx` file in **Keil µVision**
 2. Select the `SW_Debug` target
 3. Build the project (**Rebuild All** recommended)
@@ -93,4 +115,4 @@ After game over:
 ---
 
 ## 👤 Author
-Student project by **[Leila Alizadeh]**
+Student project by **Leila Alizadeh**, Politecnico di Torino, Computer Architectures, A.Y. 2025–2026
